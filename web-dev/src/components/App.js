@@ -149,12 +149,14 @@ class App extends React.Component {
     const saveButton = <button key="save" disabled={!this.state.changed} onClick={this.handleSave}>Speichern</button>
     const importExport = <div key="importexport" className="import-export">
         <label>
-          import
+          JSON Import
           <input type="file" onInput={this.handleImport}/>
         </label>
-        <a href={"data:application/json;base64," + utf8_to_b64(JSON.stringify(this.state.data)) } download="data.json">export</a>
+        <a href={"data:application/json;base64," + utf8_to_b64(JSON.stringify(this.state.data)) } download="data.json">
+          JSON Download
+        </a>
       </div>
-    const download = <button onClick={this.handleDownload}>Download</button>
+    const download = <button onClick={this.handleDownload}>QR Download</button>
 
     return <div>
       <nav>
@@ -168,7 +170,8 @@ class App extends React.Component {
         </label>
         <div className="buttons">
           { this.state.page === "edit" ?
-            [ saveButton, importExport ]
+            this.state.changed ? [saveButton, importExport]
+            : importExport
           : download }
         </div>
       </nav>
