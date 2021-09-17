@@ -151,11 +151,17 @@ function printReceipt(textParts) {
   printer.printLn()
   printer.print(textParts.last)
   printer.printLn()
-  
+
   printer.print(_.align(0))
 
-  printer.printLn()
-  printer.print(textParts.announcement)
+  if (textParts.announcement && textParts.announcement.trim()) {
+    // printer.print(_.align(1))
+    // printer.print(_.align(0))
+    printer.printLn()
+    printer.printLn()
+    printer.print(textParts.announcement)
+  }
+
   printer.printLn()
   printer.printLnLn()
 

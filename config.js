@@ -12,7 +12,7 @@ const weekdays = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"]
 
 const getLines = date => ({
   header: "----- 5 BARCODES SCANNEN -----",
-  first: "*** Fiction Forum ***".toUpperCase(),
+  first: "*** Kompetenzzentrum Kultur- und Kreativwirtschaft des Bundes ***".toUpperCase(),
   second: "F-U-T-U-R-E T-O G-O",
   third: dateFormat(date, "XX dd.mm.yyyy HH:MM").replace("XX", XX => weekdays[date.getDay()]).toUpperCase(),
   nexttolast: "***",
